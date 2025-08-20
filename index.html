@@ -3,140 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stephanie Sadowski - Data Scientist</title>
+    <title>Stephanie Sadowski | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-            background-color: #f9f9f9;
+        :root {
+            --royal-blue: #4169E1;
+            --royal-blue-light: #6495ED;
+            --royal-blue-dark: #0047AB;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --background: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
         }
-        .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 3px solid #007cba;
-            padding-bottom: 20px;
-        }
-        .header h1 {
+
+        * {
             margin: 0;
-            color: #007cba;
-            font-size: 2.5em;
-        }
-        .header h2 {
-            margin: 10px 0;
-            color: #555;
-            font-weight: normal;
-        }
-        .contact-info {
-            margin: 15px 0;
-            font-size: 1.1em;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section h3 {
-            color: #007cba;
-            border-bottom: 2px solid #007cba;
-            padding-bottom: 5px;
-        }
-        .download-btn {
-            background-color: #007cba;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin: 10px 10px 10px 0;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #005c8a;
-        }
-        .achievements {
-            background-color: #f0f8ff;
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid #007cba;
-        }
-        .achievements ul {
-            list-style: none;
             padding: 0;
+            box-sizing: border-box;
         }
-        .achievements li {
-            margin: 10px 0;
-            padding: 5px 0;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
-        .connect-links a {
-            color: #007cba;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--background);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
             text-decoration: none;
-            margin-right: 15px;
+        }
+
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: var(--background);
+            padding: 80px 24px 24px;
+            z-index: 200;
+        }
+
+        .nav-menu.active {
+            display: block;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--royal-blue);
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 300;
+            position: relative;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 120px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 40px;
+            border: 4px solid var(--gray-100);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: var(--gray-100);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge.primary {
+            background: var(--royal-blue);
+            color: white;
+        }
+
+        .contact-info {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+        }
+
+        /* Professional Summary */
+        .summary-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+
+        .summary-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: var(--background);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--gray-100);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .skill-tag.featured {
+            background: var(--royal-blue);
+            color: white;
+        }
+
+        /* Work Experience */
+        .experience-item {
+            background: var(--background);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .experience-header {
+            margin-bottom: 24px;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .experience-company {
+            font-size: 1.125rem;
+            color: var(--royal-blue);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .experience-meta {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .experience-achievements {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .experience-achievements li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .experience-achievements li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--royal-blue);
             font-weight: bold;
         }
-        .connect-links a:hover {
-            text-decoration: underline;
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .experience-tag {
+            background: var(--gray-100);
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Portfolio Section */
+        .portfolio-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid;
+        }
+
+        .btn-primary {
+            background: var(--royal-blue);
+            color: white;
+            border-color: var(--royal-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--royal-blue-dark);
+            border-color: var(--royal-blue-dark);
+        }
+
+        .btn-secondary {
+            background: var(--background);
+            color: var(--royal-blue);
+            border-color: var(--royal-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--royal-blue);
+            color: white;
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--royal-blue);
+            background: var(--background);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .portfolio-actions {
+                flex-direction: row;
+            }
+
+            .contact-links {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-menu {
+                display: block;
+                position: static;
+                background: none;
+                padding: 0;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .close-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-    <img src="Stephanie-Sadowski-photo.png" alt="Stephanie Sadowski" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
-    <h1>Stephanie Sadowski</h1>
-    <h2>Data Scientist | Risk Analyst | Statistical Modeling Expert</h2>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Stephanie Sadowski | Portfolio</a>
+                <button class="menu-toggle">☰</button>
+                <nav class="nav-menu" id="navMenu">
+                    <button class="close-menu">×</button>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills & Expertise</a></li>
+                        <li><a href="#experience">Work Experience</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <img src="stephanie-sadowski-photo.png" alt="Stephanie Sadowski" class="profile-image">
+            <h1>Stephanie Sadowski</h1>
+            <h2>Senior Data Scientist & Risk Assessment Expert</h2>
+            
+            <div class="badges">
+                <span class="badge primary">🎓 Harvard Data Science</span>
+                <span class="badge">📊 Statistical Modeling</span>
+                <span class="badge">🤖 Machine Learning</span>
+                <span class="badge">⚠️ Risk Assessment</span>
+                <span class="badge">🐍 Python Expert</span>
+            </div>
+
             <div class="contact-info">
                 📧 stephanie.sadowski.oh@gmail.com | 📱 440.222.6403 | 📍 Oberlin, Ohio
             </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h3>About Me</h3>
-            <p>Data scientist with 5+ years of experience building comprehensive analytical solutions that drive measurable business outcomes. Proven expertise in statistical modeling, predictive analytics, and machine learning with a strong track record of deploying analytical systems used by 100+ colleagues across multiple departments. Expert in collaborating with cross-functional teams to translate business challenges into data-driven solutions while ensuring insights are incorporated into business processes.</p>
-        </div>
-
-        <div class="section">
-            <h3>Portfolio & Resume</h3>
-            <a href="Stephanie_Sadowski_Portfolio.pdf" class="download-btn" target="_blank">📄 View Portfolio</a>
-            <a href="Stephanie_Sadowski_Resume.pdf" class="download-btn" target="_blank">📋 Download Resume</a>
-        </div>
-
-        <div class="section achievements">
-            <h3>Key Achievements</h3>
-            <ul>
-                <li>🏆 Percy Neyman Award (2021) for innovation and leadership</li>
-                <li>💰 8-figure business impact through statistical modeling and predictive analytics</li>
-                <li>👥 Mentored 25+ professionals in statistical methods and analytical best practices</li>
-                <li>🎓 Harvard University - Master's in Data Science (In Progress)</li>
-                <li>📊 Built analytical systems serving 100+ stakeholders across multiple departments</li>
-                <li>🔬 Seven consecutive promotions demonstrating consistent analytical excellence</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Technical Expertise</h3>
-            <p><strong>Programming:</strong> Python, R, SQL, TensorFlow, Pandas, NumPy, Scikit-learn</p>
-            <p><strong>Analytics:</strong> Machine Learning, Predictive Modeling, Statistical Analysis, Design of Experiments</p>
-            <p><strong>Visualization:</strong> Tableau, Power BI, Executive Dashboards, Data Storytelling</p>
-            <p><strong>Specializations:</strong> Risk Assessment, Policy Development, Cross-functional Collaboration</p>
-        </div>
-
-        <div class="section">
-            <h3>Connect With Me</h3>
-            <div class="connect-links">
-                <a href="mailto:stephanie.sadowski.oh@gmail.com">📧 Email</a>
-                <a href="www.linkedin.com/in/stephanie-sadowski-oh" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/stephanie-sadowski" target="_blank">💻 GitHub</a>
+    <!-- Professional Summary -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="summary-card">
+                <h3>📋 Professional Summary</h3>
+                <p>Data scientist with 5+ years building comprehensive analytical solutions that drive measurable business outcomes. Expert in statistical modeling, predictive analytics, and machine learning with proven track record deploying systems serving 100+ colleagues across departments. Specialized in risk assessment frameworks and cross-functional collaboration, delivering 8-figure business impact through data-driven decision making.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💻 Skills & Expertise</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🤖 Data Science & ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Machine Learning</span>
+                        <span class="skill-tag featured">Predictive Analytics</span>
+                        <span class="skill-tag">Statistical Modeling</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Risk Assessment</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Design of Experiments</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🐍 Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Python</span>
+                        <span class="skill-tag featured">R</span>
+                        <span class="skill-tag featured">SQL</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Visualization & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Dashboard Development</span>
+                        <span class="skill-tag">Data Storytelling</span>
+                        <span class="skill-tag">Executive Reporting</span>
+                        <span class="skill-tag">Real-time Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💼 Work Experience</h2>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Staff Chemist & Statistical Data Scientist</h3>
+                    <div class="experience-company">The Sherwin-Williams Company</div>
+                    <div class="experience-meta">Cleveland, Ohio | 2023 - Present</div>
+                </div>
+
+                <ul class="experience-achievements">
+                    <li>Built advanced machine learning models using Python (PyTorch, TensorFlow, Scikit-learn) for anomaly detection and risk classification, reducing product variability across diverse product lines</li>
+                    <li>Designed comprehensive risk assessment frameworks using DFSS techniques, preventing costly development issues and ensuring regulatory compliance across 120+ international markets</li>
+                    <li>Developed real-time monitoring systems serving 100+ stakeholders with automated alerts for proactive risk identification</li>
+                    <li>Led cross-functional analytics initiatives delivering 8-figure cost reductions through statistical optimization and predictive modeling</li>
+                </ul>
+
+                <div class="experience-tags">
+                    <span class="experience-tag">Python</span>
+                    <span class="experience-tag">Machine Learning</span>
+                    <span class="experience-tag">Risk Assessment</span>
+                    <span class="experience-tag">Statistical Modeling</span>
+                    <span class="experience-tag">Tableau</span>
+                    <span class="experience-tag">DFSS</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Senior Chemist & Data Scientist</h3>
+                    <div class="experience-company">The Sherwin-Williams Company</div>
+                    <div class="experience-meta">Cleveland, Ohio | 2021 - 2023</div>
+                </div>
+
+                <ul class="experience-achievements">
+                    <li>Developed predictive analytics frameworks enabling proactive decision-making for executive leadership</li>
+                    <li>Mentored 25+ professionals in statistical methods and analytical best practices</li>
+                    <li>Applied Design of Experiments methodology delivering significant cost savings while maintaining quality standards</li>
+                    <li>Received Percy Neyman Award (2021) for innovation and analytical excellence</li>
+                </ul>
+
+                <div class="experience-tags">
+                    <span class="experience-tag">Predictive Analytics</span>
+                    <span class="experience-tag">DOE</span>
+                    <span class="experience-tag">Team Leadership</span>
+                    <span class="experience-tag">Executive Communication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📁 Portfolio & Resume</h2>
+                <p class="section-description">Access my detailed portfolio showcasing data science projects, statistical modeling work, and comprehensive professional experience.</p>
+            </div>
+
+            <div class="portfolio-actions">
+                <a href="Stephanie_Sadowski_Portfolio.pdf" class="btn btn-primary" target="_blank">
+                    📄 View Portfolio
+                </a>
+                <a href="Stephanie_Sadowski_Resume.pdf" class="btn btn-secondary" target="_blank">
+                    📋 Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📞 Connect With Me</h2>
+                <p class="section-description">Let's discuss opportunities in data science, risk assessment, and analytical solutions.</p>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:stephanie.sadowski.oh@gmail.com" class="contact-link">
+                    <span>📧</span>
+                    <span>stephanie.sadowski.oh@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank" class="contact-link">
+                    <span>💼</span>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/stephanie-sadowski" target="_blank" class="contact-link">
+                    <span>💻</span>
+                    <span>GitHub Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('navMenu');
+        const closeMenu = document.querySelector('.close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+
+        // Close menu when clicking outside
+        navMenu.addEventListener('click', (e) => {
+            if (e.target === navMenu) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
